@@ -12,8 +12,10 @@ This document defines the initial backend API for Midhori Loop, focusing on trac
 ## API resources
 
 ### 1. Businesses
+  
 
-- `POST /api/businesses`
+  
+- `POST /api/businesses` 
   - Create a new business signup request
   - Request body: `{ name, email, city, materialTypes, description }`
   - Response: `{ id, status, submittedAt }`
