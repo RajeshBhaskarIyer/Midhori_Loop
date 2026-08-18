@@ -144,6 +144,83 @@ main {
   border-bottom: none;
 }
 
+button {
+  background: #1f7a3a;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button[disabled] {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.panel h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.panel .stat {
+  display: inline-block;
+  background: rgba(31,122,58,0.08);
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+  color: #1f7a3a;
+  font-weight: 700;
+}
+
+/* Dashboard layout refinement */
+.dashboard-page {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.6rem;
+}
+
+.dashboard-page .table-panel {
+  grid-column: 1 / 2;
+}
+
+.dashboard-page .panel {
+  grid-column: 1 / 2;
+}
+
+.dashboard-page aside {
+  grid-column: 2 / 3;
+}
+
+/* Card and subtle shadow */
+.panel, .section-block, .feature-card, .table-panel, .hero-card {
+  box-shadow: 0 6px 18px rgba(31,122,58,0.06);
+}
+
+.signup-form label,
+.signup-form input,
+.signup-form button {
+  display: block;
+  width: 100%;
+}
+
+.signup-form label {
+  margin-bottom: 0.8rem;
+}
+
+.signup-form input {
+  margin-top: 0.4rem;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5ece7;
+}
+
+table button {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+}
+
 .site-footer {
   text-align: center;
   border-top: 1px solid #dfe7e2;
