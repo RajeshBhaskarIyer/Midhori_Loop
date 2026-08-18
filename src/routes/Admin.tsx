@@ -1,14 +1,25 @@
-const samplePartners = [
-  { name: 'Green Cycle Recycling', type: 'Plastic', status: 'Active' },
-  { name: 'Urban Metals Hub', type: 'Metal', status: 'Active' },
-]
-
-const sampleRequests = [
-  { business: 'Eco Foods', material: 'Cardboard', requestDate: '2026-07-20', status: 'Pending' },
-  { business: 'FreshPack', material: 'Plastic', requestDate: '2026-07-19', status: 'Approved' },
-]
+import { useEffect, useState } from 'react'
+import demo from '../demoData'
 
 export default function Admin() {
+  const [state, setState] = useState(null)
+
+  function reload() {
+    setState(demo.getDemoState())
+  }
+
+  useEffect(() => {
+    reload()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  function handleApprove(id: any) {
+    demo.approveRequest(id)
+    reload()
+  }
+
+  if (!state) return null
+
   return (
     <section className="page admin-page">
       <div className="panel">
@@ -25,15 +36,21 @@ export default function Admin() {
               <th>Material</th>
               <th>Request date</th>
               <th>Status</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            {sampleRequests.map((req) => (
-              <tr key={req.business + req.material}>
+            {state.requests.map((req: any) => (
+              <tr key={req.id}>
                 <td>{req.business}</td>
                 <td>{req.material}</td>
                 <td>{req.requestDate}</td>
                 <td>{req.status}</td>
+                <td>
+                  {req.status === 'Pending' && (
+                    <button onClick={() => handleApprove(req.id)}>Approve</button>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -51,8 +68,8 @@ export default function Admin() {
             </tr>
           </thead>
           <tbody>
-            {samplePartners.map((partner) => (
-              <tr key={partner.name}>
+            {state.partners.map((partner: any) => (
+              <tr key={partner.id}>
                 <td>{partner.name}</td>
                 <td>{partner.type}</td>
                 <td>{partner.status}</td>

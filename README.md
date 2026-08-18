@@ -1,3 +1,43 @@
+# Midhori Loop — Demo Application
+
+This repository contains a small demo version of the Midhori Loop UI. The demo is not a production app — it's a lightweight, in-browser interactive prototype that uses `localStorage` to persist demo state (signup requests, partners, materials, certificates).
+
+## Quick start
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Run the dev server:
+
+```bash
+npm run dev
+```
+
+3. Open the app in your browser at the address Vite prints (usually `http://localhost:5173`).
+
+## Demo flows
+
+- Use the **Signup** page to submit a business signup request.
+- Go to **Admin** to approve pending requests (approving will add the business as a demo partner).
+- Use **Dashboard** to view material tracking and generate demo certificates for delivered items.
+- Use **Certification** to view and download issued demo certificates.
+
+## Resetting demo data
+
+To clear demo state and start over, open the browser DevTools console and run:
+
+```js
+localStorage.removeItem('midhori_demo_state')
+location.reload()
+```
+
+## Notes
+
+- The demo uses `localStorage` only; no backend is required.
+- The `src/demoData.ts` file contains the demo data helpers.
 # Midhori Loop MVP
 
 Midhori Loop is a women-led sustainability platform building a business-to-recycling-unit network. This MVP includes a landing website, material tracking dashboard, recycling certification page, and initial B2B signup and admin interfaces.

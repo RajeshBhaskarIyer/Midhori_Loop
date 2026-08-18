@@ -25,6 +25,18 @@ export default function Header() {
             {item.label}
           </NavLink>
         ))}
+        <button
+          title="Reset demo data"
+          onClick={() => {
+            if (confirm('Clear demo data and reload?')) {
+              localStorage.removeItem('midhori_demo_state')
+              location.reload()
+            }
+          }}
+          style={{ marginLeft: 8 }}
+        >
+          Reset Demo
+        </button>
       </nav>
     </header>
   )
